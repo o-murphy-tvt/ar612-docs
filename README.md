@@ -36,6 +36,11 @@
 
 * Linux
 ```Bash
+# install dependencies
+sudo apt install libegl1
+sudo apt install python3-pip
+
+# install package
 pip3 install ar612_cfg-<version>-py3-none-any.whl
 
 # run
