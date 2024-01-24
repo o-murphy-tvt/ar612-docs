@@ -34,23 +34,43 @@
 
 ### Installation
 
-* [From releases](https://github.com/o-murphy-tvt/archer-ar612-cfg/releases)
-* Git clone:
+* Linux
+```Bash
+pip3 install ar612_cfg-<version>-py3-none-any.whl
 
-```shell
-git clone https://github.com/o-murphy-tvt/archer-ar612-cfg
-cd archer-ar612-cfg
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
-python -m archer-ar612-cfg
+# run
+ar612-cfg
 ```
 
-* Build:
+[//]: # (* [From releases]&#40;https://github.com/o-murphy-tvt/archer-ar612-cfg/releases&#41;)
 
-```shell
-pyinstaller archer-ar612-cfg.spec
-```
+[//]: # (* Git clone:)
+
+[//]: # ()
+[//]: # (```shell)
+
+[//]: # (git clone https://github.com/o-murphy-tvt/archer-ar612-cfg)
+
+[//]: # (cd archer-ar612-cfg)
+
+[//]: # (python -m venv venv)
+
+[//]: # (source venv/bin/activate)
+
+[//]: # (pip install -r requirements.txt)
+
+[//]: # (python -m archer-ar612-cfg)
+
+[//]: # (```)
+
+[//]: # (* Build:)
+
+[//]: # ()
+[//]: # (```shell)
+
+[//]: # (pyinstaller archer-ar612-cfg.spec)
+
+[//]: # (```)
 
 ## Usage
 
