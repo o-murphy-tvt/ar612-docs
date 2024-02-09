@@ -220,16 +220,16 @@ save;\t\tsave current configuration
 
 | Index   | Name                                | Tag                 | Attrs |        Safe        | Values                                                                  | Note |
 |:--------|:------------------------------------|:--------------------|:-----:|:------------------:|-------------------------------------------------------------------------|------|
-| `0x313` | Collect high temperature background | `collect_hot`       |  -w   | :white_check_mark: | -                                                                       | -    |
-| `0x314` | Collect low temperature background  | `collect_cold`      |  -w   | :white_check_mark: | -                                                                       | -    |
+| `0x313` | Collect high temperature background | `collect_hot`       |  -w   | :white_check_mark: | 0-collect                                                               | -    |
+| `0x314` | Collect low temperature background  | `collect_cold`      |  -w   | :white_check_mark: | 0-collect                                                               | -    |
 | `0x403` | Collect shutter background          | `collect_shutter`   |  -w   |     :question:     | -                                                                       | -    |
 | `0x404` | Collect scene background            | `collect_scene`     |  -w   |     :question:     | -                                                                       | -    |
 | `0x315` | calculate (K)                       | `calculate_k`       |  -w   | :white_check_mark: | 1-k, 2-c, 3-bad pixels, 4-delta, 5-delta shutter                        | -    |
 | `0x316` | initialization                      | `initialisation`    |  -w   |     :question:     | 0-large closed loop, 1-k, 2-occ, 3-Dead pixel, 4-delta, 5-delta shutter | -    |
 | `0x320` | flash load K                        | `flash_load_k`      |  -w   |     :question:     | -                                                                       | -    |
-| `0x321` | Save K                              | `save_k`            |  -w   | :white_check_mark: | -                                                                       | -    |
+| `0x321` | Save K                              | `save_k`            |  -w   | :white_check_mark: | 1-save                                                                  | -    |
 | `0x324` | flash loading bad pixels            | `flash_load_bad_px` |  -w   |     :question:     | -                                                                       | -    |
-| `0x325` | save bad pixels                     | `save_bad_px`       |  -w   | :white_check_mark: | -                                                                       | -    |
+| `0x325` | save bad pixels                     | `save_bad_px`       |  -w   | :white_check_mark: | 1-save                                                                  | -    |
 
 ###                                                                                            
 
@@ -256,8 +256,8 @@ save;\t\tsave current configuration
 | `0x326` | Bad points X coordinate        | `bad_point_x`       |  -rw  | :white_check_mark: | 0-639       | -    |
 | `0x327` | Bad points Y coordinate        | `bad_point_y`       |  -rw  | :white_check_mark: | 0-511       | -    |
 | `0x328` | Bad points switch              | `bad_point_cross`   |  -rw  | :white_check_mark: | 0-off, 1-on | -    |
-| `0x329` | Bad point correction control-w | `bad_point_kill`    |  -w   | :white_check_mark: | -           | -    |
-| `0x410` | Bad point cancel control       | `bad_point_restore` |  -w   | :white_check_mark: | -           | -    |
+| `0x329` | Bad point correction control-w | `bad_point_kill`    |  -w   | :white_check_mark: | 0 - kill    | -    |
+| `0x410` | Bad point cancel control       | `bad_point_restore` |  -w   | :white_check_mark: | 0 - restore | -    |
 
 ### Playback options
 
