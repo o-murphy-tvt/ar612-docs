@@ -156,26 +156,26 @@ save;
 
 ### Commands list
 
-| Command               | Behaviour                  | Values | Note |
-|:----------------------|:---------------------------|--------|------|
-| **>> BASIC**          |                            |        |      |
-| `save`                | save current configuration | -      | -    |
-| `ffc_on`              | enable auto shutter        | -      | -    |
-| `ffc_off`             | disable auto shutter       | -      | -    |
-| `set_ffc_time`        | set shutter timeout        | 1-10   | -    |
-| `set_vcom`            | set oled backlight         | 0-200  | -    |
-| `set_oled_brightness` | set oled brightness        | 0-100  | -    |
-| `set_oled_contrast`   | set oled contrast          | 0-100  | -    |
-|                       |                            |        |      |
-| **>> CALIBRATION**    |                            |        |      |
-| `collect_cold`        | collect cold background    | -      | -    |
-| `collect_hot`         | collect hot background     | -      | -    |
-| `calculate_k`         | collect calibration data   | -      | -    |
-| `save_k`              | save calibration data      | -      | -    |
-|                       |                            |        |      |
-| **>> ADVANCED**       |                            |        |      |
-| `sensor_cap_5`        | sets 0x31a:4 to 5          | -      | -    |
-| `sensor_cap_7`        | sets 0x31a:4 to 7          | -      | -    |
+| Command                 | Behaviour                  | Values | Note |
+|:------------------------|:---------------------------|--------|------|
+| **>> BASIC**            |                            |        |      |
+| `save`                  | save current configuration | -      | -    |
+| `ffc_on`                | enable auto shutter        | -      | -    |
+| `ffc_off`               | disable auto shutter       | -      | -    |
+| `set_ffc_time`          | set shutter timeout        | 1-10   | -    |
+| `set_vcom`              | set oled backlight         | 0-200  | -    |
+| `set_oled_brightness`   | set oled brightness        | 0-100  | -    |
+| `set_oled_contrast`     | set oled contrast          | 0-100  | -    |
+|                         |                            |        |      |
+| **>> CALIBRATION**      |                            |        |      |
+| `collect_cold`          | collect cold background    | -      | -    |
+| `collect_hot`           | collect hot background     | -      | -    |
+| `calculate_k`           | collect calibration data   | -      | -    |
+| `save_k`                | save calibration data      | -      | -    |
+|                         |                            |        |      |
+| **>> ADVANCED**         |                            |        |      |
+| `sensor_cap`            | sets 0x31a:4               | -      | -    |
+| `agc_linear_gain_limit` | sets 0x318:13              | -      | -    |
 
 restore_sensor_settings;\t\trestores 0x31a defaults
 
@@ -207,9 +207,9 @@ save;\t\tsave current configuration
 |:--------|:---------------------|:------------------|:-----:|:------------------:|------------------------------------------------|------|
 | `0x301` | FFC                  | `ffc`             |  -w   | :white_check_mark: | 0-shutter, 1-background                        | -    |
 | `0x302` | polarity             | `polarity`        |  -w   | :white_check_mark: | 0-white hot, 1-black hot, 2..14                | -    |
-| `0x33a` | rotate               | `rotate`          |  -w   | :white_check_mark: | 0-off, 1-horizontal, 2-vertical, 3-diagonal    | -    |
-| `0x33b` | magnification        | `magnification`   |  -w   | :white_check_mark: | 1/2/3/4/6                                      | -    |
-| `0x304` | Image mode           | `image_mode`      |  -w   | :white_check_mark: | 0-default, 1-linear, 2-mixed                   | -    |
+| `0x33a` | rotate               | `rotate`          |  -rw  | :white_check_mark: | 0-off, 1-horizontal, 2-vertical, 3-diagonal    | -    |
+| `0x33b` | magnification        | `magnification`   |  -rw  | :white_check_mark: | 1/2/3/4/6                                      | -    |
+| `0x304` | Image mode           | `image_mode`      |  -rw  | :white_check_mark: | 0-default, 1-linear, 2-mixed                   | -    |
 | `0x305` | Contrast             | `contrast`        |  -rw  | :white_check_mark: | 1-100                                          | -    |
 | `0x306` | Brightness           | `brightness`      |  -rw  | :white_check_mark: | 1-100                                          | -    |
 | `0x307` | Enhanced             | `enhanced`        |  -rw  | :white_check_mark: | 1-100                                          | -    |
@@ -222,8 +222,8 @@ save;\t\tsave current configuration
 |:--------|:------------------------------------|:--------------------|:-----:|:------------------:|-------------------------------------------------------------------------|------|
 | `0x313` | Collect high temperature background | `collect_hot`       |  -w   | :white_check_mark: | 0-collect                                                               | -    |
 | `0x314` | Collect low temperature background  | `collect_cold`      |  -w   | :white_check_mark: | 0-collect                                                               | -    |
-| `0x403` | Collect shutter background          | `collect_shutter`   |  -w   |     :question:     | -                                                                       | -    |
-| `0x404` | Collect scene background            | `collect_scene`     |  -w   |     :question:     | -                                                                       | -    |
+| `0x403` | Collect shutter background          | `collect_shutter`   |  -w   | :white_check_mark: | -                                                                       | -    |
+| `0x404` | Collect scene background            | `collect_scene`     |  -w   | :white_check_mark: | -                                                                       | -    |
 | `0x315` | calculate (K)                       | `calculate_k`       |  -w   | :white_check_mark: | 1-k, 2-c, 3-bad pixels, 4-delta, 5-delta shutter                        | -    |
 | `0x316` | initialization                      | `initialisation`    |  -w   |     :question:     | 0-large closed loop, 1-k, 2-occ, 3-Dead pixel, 4-delta, 5-delta shutter | -    |
 | `0x320` | flash load K                        | `flash_load_k`      |  -w   |     :question:     | -                                                                       | -    |
@@ -301,9 +301,9 @@ save;\t\tsave current configuration
 | `0x33f` | LED                          | `led`                    |  -w   | :white_check_mark: | 0-off, 1-on              | -              |
 | `0x408` | POWER                        | `power`                  |  -w   |     :warning:      | 1-off, 0-on              | only off works |
 | `0x409` | proximity_switch_pwm         | `proximity_switch_pwm`   |  -rw  |     :question:     | 0-100                    | -              |
-| `0x40a` | proximity_switch_frequency r | `proximity_switch_freq`  |  -w   |     :question:     | 30M/(100-65535)          | -              |
+| `0x40a` | proximity_switch_frequency r | `proximity_switch_freq`  |  -rw  |     :question:     | 30M/(100-65535)          | -              |
 | `0x40b` | LASER_POWER                  | `laser_power`            |  -rw  |     :question:     | 0-off, 1-on              | -              |
-| `0x40c` | OsdCursor_CenterData         | `osd_cursor_center_data` |       |     :question:     | -                        | -              |
+| `0x40c` | OsdCursor_CenterData         | `osd_cursor_center_data` |  -w   |     :question:     | -                        | -              |
 | `0x411` | Cursor X Center              | `cursor_x_center`        |  -rw  |     :question:     | 0-719 (cursor in center) | -              |
 | `0x412` | Cursor Y Center              | `cursor_y_center`        |  -rw  |     :question:     | 0-575 (cursor in center) | -              |
 | `0x413` | osd_data                     | `osd_data`               |  -w   |     :question:     | -                        | -              |
@@ -361,7 +361,7 @@ save;\t\tsave current configuration
 | `0x318:10` | agc_roi_right            | `:agc_roi_right`         |       |     :question:     | -      | -    |
 | `0x318:11` | agc_roi_top              | `:agc_roi_top`           |       |     :question:     | -      | -    |
 | `0x318:12` | agc_roi_bottom           | `:agc_roi_bottom`        |       |     :question:     | -      | -    |
-| `0x318:13` | agc_linear_gain_limit    | `:agc_linear_gain_limit` |       |     :question:     | -      | -    |
+| `0x318:13` | agc_linear_gain_limit    | `:agc_linear_gain_limit` |  -rw  | :white_check_mark: | -      | -    |
 | `0x318:14` | agc_limit                | `:agc_limit`             |       |     :question:     | -      | -    |
 | `0x318:15` | agc_usr_min              | `:agc_usr_min`           |       |     :question:     | -      | -    |
 | `0x318:16` | agc_usr_max              | `:agc_usr_max`           |       |     :question:     | -      | -    |
@@ -390,7 +390,7 @@ save;\t\tsave current configuration
 | `0x31a:01` | sensor_rst                 | `:sensor_rst`         |  -rw  |     :warning:      | -           | -                               |
 | `0x31a:02` | sensor_xmir                | `:sensor_xmir`        |  -rw  |     :warning:      | -           | -                               |
 | `0x31a:03` | sensor_ymir                | `:sensor_ymir`        |  -rw  |     :warning:      | -           | -                               |
-| `0x31a:04` | sensor_cap                 | `:sensor_cap`         |  -rw  |     :warning:      | (default 5) | can turns core to brick         |
+| `0x31a:04` | sensor_cap                 | `:sensor_cap`         |  -rw  | :white_check_mark: | (default 5) | can turns core to brick         |
 | `0x31a:05` | sensor_sfb                 | `:sensor_sfb`         |  -rw  |     :warning:      | -           | -                               |
 | `0x31a:06` | sensor_gof                 | `:sensor_gof`         |  -rw  |     :warning:      | -           | -                               |
 | `0x31a:07` | sensor_crg                 | `:sensor_crg`         |  -rw  |     :warning:      | -           | -                               |
