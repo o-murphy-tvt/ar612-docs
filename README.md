@@ -191,6 +191,12 @@ save;\t\tsave current configuration
 > - :question: - NOT TESTED
 > - :white_check_mark: - SAFE FOR READ/WRITE OPERATIONS
 
+> [!IMPORTANT]
+> Parameter attributes
+> - `-r` - available for direct reading via getter
+> - `-w` - available for direct writing via setter
+> - `-w(r)` - you have send a control value to read the parameter value
+
 ### General
 
 | Index   | Name                     | Tag             | Attrs  |        Safe        | Values                   | Note |
@@ -213,7 +219,7 @@ save;\t\tsave current configuration
 | `0x305` | Contrast             | `contrast`        |  -rw  | :white_check_mark: | 1-100                                          | -    |
 | `0x306` | Brightness           | `brightness`      |  -rw  | :white_check_mark: | 1-100                                          | -    |
 | `0x307` | Enhanced             | `enhanced`        |  -rw  | :white_check_mark: | 1-100                                          | -    |
-| `0x311` | real-time data       | `rt_data`         |  -w   |     :question:     | 1-average, 2-temperature, 3-voltage, 4-AD-TEST | -    |
+| `0x311` | real-time data       | `rt_data`         | -w(r) | :white_check_mark: | 1-average, 2-temperature, 3-voltage, 4-AD-TEST | -    |
 | `0x415` | Automatic correction | `auto_correction` |  -rw  |     :question:     | 0-off, 1-on                                    | -    |
 
 ### Calibration
@@ -225,7 +231,7 @@ save;\t\tsave current configuration
 | `0x403` | Collect shutter background          | `collect_shutter`   |  -w   | :white_check_mark: | -                                                                       | -    |
 | `0x404` | Collect scene background            | `collect_scene`     |  -w   | :white_check_mark: | -                                                                       | -    |
 | `0x315` | calculate (K)                       | `calculate_k`       |  -w   | :white_check_mark: | 1-k, 2-c, 3-bad pixels, 4-delta, 5-delta shutter                        | -    |
-| `0x316` | initialization                      | `initialisation`    |  -w   |     :question:     | 0-large closed loop, 1-k, 2-occ, 3-Dead pixel, 4-delta, 5-delta shutter | -    |
+| `0x316` | initialization                      | `initialisation`    | -w(r) | :white_check_mark: | 0-large closed loop, 1-k, 2-occ, 3-Dead pixel, 4-delta, 5-delta shutter | -    |
 | `0x320` | flash load K                        | `flash_load_k`      |  -w   |     :question:     | -                                                                       | -    |
 | `0x321` | Save K                              | `save_k`            |  -w   | :white_check_mark: | 1-save                                                                  | -    |
 | `0x324` | flash loading bad pixels            | `flash_load_bad_px` |  -w   |     :question:     | -                                                                       | -    |
@@ -240,14 +246,14 @@ save;\t\tsave current configuration
 
 ###                                                                                            
 
-| Index   | Name                    | Tag                       | Attrs |    Safe    | Values                                                                  | Note |
-|:--------|:------------------------|:--------------------------|:-----:|:----------:|-------------------------------------------------------------------------|------|
-| `0x32b` | flash load delta        | `flash_load_delta`        |  -w   | :question: | -                                                                       | -    |
-| `0x32c` | save delta              | `save_delta`              |  -w   | :question: | -                                                                       | -    |
-| `0x32d` | Temperature             | `temperature`             |  -w   | :question: | 1-real-time, 2-starting, 3-temperature difference, 4-saved value, 5-CC8 | -    |
-| `0x405` | delt shutter switch     | `delt_shutter_switch`     |  -rw  | :question: | 0-off, 1-on                                                             | -    |
-| `0x406` | flash load delt shutter | `flash_load_delt_shutter` |  -w   | :question: | -                                                                       | -    |
-| `0x407` | save delt shutter       | `save_delt_shutter`       |  -w   | :question: | -                                                                       | -    |
+| Index   | Name                    | Tag                       | Attrs |        Safe        | Values                                                                  | Note |
+|:--------|:------------------------|:--------------------------|:-----:|:------------------:|-------------------------------------------------------------------------|------|
+| `0x32b` | flash load delta        | `flash_load_delta`        |  -w   |     :question:     | -                                                                       | -    |
+| `0x32c` | save delta              | `save_delta`              |  -w   |     :question:     | -                                                                       | -    |
+| `0x32d` | Temperature             | `temperature`             | -w(r) | :white_check_mark: | 1-real-time, 2-starting, 3-temperature difference, 4-saved value, 5-CC8 | -    |
+| `0x405` | delt shutter switch     | `delt_shutter_switch`     |  -rw  |     :question:     | 0-off, 1-on                                                             | -    |
+| `0x406` | flash load delt shutter | `flash_load_delt_shutter` |  -w   |     :question:     | -                                                                       | -    |
+| `0x407` | save delt shutter       | `save_delt_shutter`       |  -w   |     :question:     | -                                                                       | -    |
 
 ### Bad points removal
 
