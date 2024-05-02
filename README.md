@@ -297,24 +297,24 @@ save;\t\tsave current configuration
 | `0x336` | Auto bad point removal thresholdF 0-100 | `auto_bad_point_th` |  -rw  | :white_check_mark: | 0-off, 1-on            | -    |
 | `0x338` | Auto FFC                                | `auto_ffc`          |  -rw  | :white_check_mark: | 0-off, 1-on            | -    |
 | `0x339` | Auto FFC time                           | `auto_ffc_time`     |  -rw  | :white_check_mark: | 1-60                   | -    |
-| `0x33d` | Cross X coordinate                      | `cross_x_coord`     |  -rw  |     :question:     | 0-719 (Zoom in center) | -    |
-| `0x33e` | Cross Y coordinate                      | `cross_y_coord`     |  -rw  |     :question:     | 0-575 (Zoom in center) | -    |
+| `0x33d` | Cross X coordinate                      | `cross_x_coord`     |  -rw  | :white_check_mark: | 0-719 (Zoom in center) | -    |
+| `0x33e` | Cross Y coordinate                      | `cross_y_coord`     |  -rw  | :white_check_mark: | 0-575 (Zoom in center) | -    |
 
 ### Core control
 
-| Index   | Name                         | Tag                      | Attrs |        Safe        | Values                   | Note           |
-|:--------|:-----------------------------|:-------------------------|:-----:|:------------------:|--------------------------|----------------|
-| `0x33f` | LED                          | `led`                    |  -w   | :white_check_mark: | 0-off, 1-on              | -              |
-| `0x408` | POWER                        | `power`                  |  -w   |     :warning:      | 1-off, 0-on              | only off works |
-| `0x409` | proximity_switch_pwm         | `proximity_switch_pwm`   |  -rw  |     :question:     | 0-100                    | -              |
-| `0x40a` | proximity_switch_frequency r | `proximity_switch_freq`  |  -rw  |     :question:     | 30M/(100-65535)          | -              |
-| `0x40b` | LASER_POWER                  | `laser_power`            |  -rw  |     :question:     | 0-off, 1-on              | -              |
-| `0x40c` | OsdCursor_CenterData         | `osd_cursor_center_data` |  -w   |     :question:     | -                        | -              |
-| `0x411` | Cursor X Center              | `cursor_x_center`        |  -rw  |     :question:     | 0-719 (cursor in center) | -              |
-| `0x412` | Cursor Y Center              | `cursor_y_center`        |  -rw  |     :question:     | 0-575 (cursor in center) | -              |
-| `0x413` | osd_data                     | `osd_data`               |  -w   |     :question:     | -                        | -              |
-| `0x417` | bno055_remap_value           | `bno055_remap_value`     |  -rw  |     :question:     | 0x21 18 06 12 09 24      | -              |
-| `0x418` | bno055_remap_sign            | `bno055_remap_sign`      |  -rw  |     :question:     | 0-7                      | -              |
+| Index   | Name                         | Tag                      | Attrs |        Safe        | Values                    | Note           |
+|:--------|:-----------------------------|:-------------------------|:-----:|:------------------:|---------------------------|----------------|
+| `0x33f` | LED                          | `led`                    |  -w   | :white_check_mark: | 0-off, 1-on               | -              |
+| `0x408` | POWER                        | `power`                  |  -w   |     :warning:      | 1-off, 0-on               | only off works |
+| `0x409` | proximity_switch_pwm         | `proximity_switch_pwm`   |  -rw  |     :question:     | 0-100                     | -              |
+| `0x40a` | proximity_switch_frequency r | `proximity_switch_freq`  |  -rw  |     :question:     | 30M/(100-65535)           | -              |
+| `0x40b` | LASER_POWER                  | `laser_power`            |  -rw  |     :question:     | 0-off, 1-on               | -              |
+| `0x40c` | OsdCursor_CenterData         | `osd_cursor_center_data` | -w(r) | :white_check_mark: | 1-ask current pixel value | -              |
+| `0x411` | Cursor X Center              | `cursor_x_center`        |  -rw  | :white_check_mark: | 0-719 (cursor in center)  | -              |
+| `0x412` | Cursor Y Center              | `cursor_y_center`        |  -rw  | :white_check_mark: | 0-575 (cursor in center)  | -              |
+| `0x413` | osd_data                     | `osd_data`               |  -w   |     :question:     | -                         | -              |
+| `0x417` | bno055_remap_value           | `bno055_remap_value`     |  -rw  |     :question:     | 0x21 18 06 12 09 24       | -              |
+| `0x418` | bno055_remap_sign            | `bno055_remap_sign`      |  -rw  |     :question:     | 0-7                       | -              |
 
 ### Programming data
 
